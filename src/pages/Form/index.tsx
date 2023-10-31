@@ -3,6 +3,7 @@ import { useFormContext } from 'react-hook-form';
 
 import mammoth from 'mammoth';
 import * as pdfjsLib from 'pdfjs-dist';
+import { Link } from 'react-router-dom';
 
 // @ts-ignore
 pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -126,6 +127,9 @@ export default function Index() {
           </p>
         )}
       </div>
+      <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+        <Link to="/skill-gap-analysis">Generate Skill Gap</Link>
+      </button>
     </div>
   );
 }

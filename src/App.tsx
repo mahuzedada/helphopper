@@ -2,7 +2,7 @@ import './App.css';
 import { FormProvider, useForm } from 'react-hook-form';
 import { Outlet, Link } from 'react-router-dom';
 
-function App() {
+export default function App() {
   const form = useForm();
 
   return (
@@ -12,7 +12,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to={`home`}>Home</Link>
+              <Link to={``}>Home</Link>
             </li>
             <li>
               <Link to={`form`}>Form</Link>
@@ -28,16 +28,9 @@ function App() {
       </div>
       <div id="detail">
         <FormProvider {...form}>
-          <div className="min-h-screen bg-gray-100 flex flex-col justify-center p-6">
-            <h1 className="text-2xl font-bold mb-6 text-center">HelpHopper</h1>
-            <div className="bg-white shadow-md rounded-md overflow-hidden">
-              <Outlet />
-            </div>
-          </div>
+          <Outlet />
         </FormProvider>
       </div>
     </>
   );
 }
-
-export default App;
