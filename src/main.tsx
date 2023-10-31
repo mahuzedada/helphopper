@@ -1,10 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import App from './App.tsx';
 import './index.css';
+import ErrorPage from './error-page';
+import SkillGapAnalysis from './pages/SkillGapAnalysis';
+import Home from './pages/Home';
+import CoverLetter from './pages/CoverLetter';
+import Form from './pages/Form';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/home',
+        element: <Home />,
+      },
+      {
+        path: '/form',
+        element: <Form />,
+      },
+      {
+        path: '/skill-gap-analysis',
+        element: <SkillGapAnalysis />,
+      },
+      {
+        path: '/cover-letter',
+        element: <CoverLetter />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );

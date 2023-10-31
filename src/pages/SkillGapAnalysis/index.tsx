@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { generateSkillGapAnalysis } from '../api';
+import { generateSkillGapAnalysis } from '../../api';
 import { useFormContext } from 'react-hook-form';
 import ProfileComponent from './ProfileComponent';
 

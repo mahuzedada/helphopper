@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useFormContext } from 'react-hook-form';
+
 import mammoth from 'mammoth';
 import * as pdfjsLib from 'pdfjs-dist';
 
@@ -7,14 +8,13 @@ import * as pdfjsLib from 'pdfjs-dist';
 pdfjsLib.GlobalWorkerOptions.workerSrc =
   'node_modules/pdfjs-dist/build/pdf.worker.js';
 
-function CandidateAndJobDetails() {
+export default function Index() {
   const {
     register,
     formState: { errors },
     trigger,
     resetField,
   } = useFormContext();
-
   const handleFileChange = async (e, fieldName: string) => {
     const file = e.target.files[0];
     if (file) {
@@ -55,6 +55,7 @@ function CandidateAndJobDetails() {
       trigger(fieldName).then();
     }
   };
+
   return (
     <div className="md:w-1/2 p-6">
       <div className="flex flex-wrap -mx-2 mb-4">
@@ -128,5 +129,3 @@ function CandidateAndJobDetails() {
     </div>
   );
 }
-
-export default CandidateAndJobDetails;
