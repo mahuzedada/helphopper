@@ -15,7 +15,7 @@ type ProfileData = {
   matchScore: number;
 };
 
-const ProfileComponent: React.FC<{ data: ProfileData }> = ({ data }) => {
+export default function ProfileComponent({ data }: ProfileData) {
   return (
     <div className="p-4 md:p-8 bg-white shadow-lg rounded-lg max-w-xl mx-auto">
       <div className="flex flex-col md:flex-row justify-between">
@@ -73,6 +73,4 @@ const ProfileComponent: React.FC<{ data: ProfileData }> = ({ data }) => {
       </div>
     </div>
   );
-};
-
-export default ProfileComponent;
+}

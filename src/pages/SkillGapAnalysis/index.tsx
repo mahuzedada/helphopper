@@ -4,7 +4,7 @@ import ProfileComponent from './ProfileComponent';
 import InvalidFormNotice from '../../components/InvalidFormNotice';
 import useCheckFormAndSubmit from '../../hooks/useCheckFormAndSubmit';
 
-function SkillGapAnalysis() {
+export default function SkillGapAnalysis() {
   const [generatedContent, setGeneratedContent] = useState('');
 
   const submit = (data) => {
@@ -32,5 +32,3 @@ function SkillGapAnalysis() {
     </>
   );
 }
-
-export default SkillGapAnalysis;

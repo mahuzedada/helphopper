@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { generateCoverLetter } from '../api';
-import { useFormContext } from 'react-hook-form';
 import useCheckFormAndSubmit from '../hooks/useCheckFormAndSubmit';
 import InvalidFormNotice from '../components/InvalidFormNotice';
 
-function CoverLetter() {
-  const { register } = useFormContext();
+export default function CoverLetter() {
   const [generatedContent, setGeneratedContent] = useState('');
 
   const submit = (data) => {
-    generateCoverLetter(data).then(setGeneratedContent);
+    generateCoverLetter({ ...data, tone: 'Formal' }).then(setGeneratedContent);
   };
   const isFormValid = useCheckFormAndSubmit(submit);
 
@@ -22,7 +20,6 @@ function CoverLetter() {
             <select
               className="w-full px-3 py-2 border rounded-md"
               defaultValue="Formal"
-              {...register('tone', { required: true })}
             >
               <option value="Formal">Formal</option>
               <option value="Enthusiastic">Enthusiastic</option>
@@ -51,5 +48,3 @@ function CoverLetter() {
     </>
   );
 }
-
-export default CoverLetter;
