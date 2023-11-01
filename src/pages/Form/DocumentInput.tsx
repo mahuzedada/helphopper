@@ -19,7 +19,7 @@ export default function DocumentInput({
     trigger,
     resetField,
   } = useFormContext();
-  const handleFileChange = async (e) => {
+  const handleFileChange = async (e: any) => {
     const file = e.target.files[0];
     if (file) {
       const reader = new FileReader();
@@ -28,7 +28,7 @@ export default function DocumentInput({
           const arrayBuffer = loadEvent.target.result;
           // @ts-ignore
           const result = await mammoth.extractRawText({
-            arrayBuffer: arrayBuffer,
+            arrayBuffer: arrayBuffer!,
           });
           resetField(fieldName, { defaultValue: result.value });
         };
@@ -44,14 +44,14 @@ export default function DocumentInput({
           for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const content = await page.getTextContent();
-            text += content.items.map((item) => item.str).join(' ') + '\n';
+            text += content.items.map((item) => item.str!).join(' ') + '\n';
           }
           resetField(fieldName, { defaultValue: text });
         };
         reader.readAsArrayBuffer(file);
       } else if (file.name.endsWith('.txt')) {
         reader.onload = (loadEvent) => {
-          const text = loadEvent.target.result;
+          const text = loadEvent.target!.result;
           resetField(fieldName, { defaultValue: text });
         };
         reader.readAsText(file);
@@ -61,15 +61,18 @@ export default function DocumentInput({
   };
   return (
     <div className="mb-4">
-      <label className="block mb-2 font-bold">{label}:</label>
+      <label className="block mb-2 font-bold" htmlFor={`${label}-fileInput`}>
+        {label}:
+      </label>
       <input
+        id={`${label}-fileInput`}
         type="file"
         accept=".pdf, .doc, .docx, .txt"
         onChange={handleFileChange}
       />
       <textarea
         className="w-full px-3 py-2 border rounded-md"
-        rows="4"
+        rows={4}
         placeholder={placeholder}
         {...register(fieldName, { required: true })}
       ></textarea>
