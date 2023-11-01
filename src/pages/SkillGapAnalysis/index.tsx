@@ -15,7 +15,7 @@ export default function SkillGapAnalysis() {
   return (
     <>
       {isFormValid ? (
-        <div className="flex flex-col h-full justify-around">
+        <div className="min-h-screen flex flex-col justify-center items-center pt-16">
           <div className="flex-1 bg-white mb-4 overflow-auto">
             {generatedContent ? (
               <ProfileComponent data={generatedContent as unknown as any} />

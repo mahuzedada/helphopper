@@ -14,7 +14,7 @@ export default function CoverLetter() {
   return (
     <>
       {isFormValid ? (
-        <div className="flex flex-col h-full justify-around p-4">
+        <div className="min-h-screen max-w-xl m-auto flex flex-col justify-center items-center p-16">
           <div className="mb-4">
             <label className="block mb-2 font-bold">Cover letter's Tone:</label>
             <select
@@ -27,10 +27,10 @@ export default function CoverLetter() {
             </select>
           </div>
 
-          <div className="flex-1 bg-white p-4 mb-4 overflow-auto">
+          <div className="w-full flex-1 bg-white p-4 mb-4 overflow-auto">
             {generatedContent ? (
               <textarea
-                className="w-full h-full px-3 py-2 border rounded-md"
+                className="w-full min-h-96 px-3 py-2 border rounded-md"
                 rows="10"
                 readOnly
                 value={generatedContent}

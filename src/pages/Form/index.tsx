@@ -7,7 +7,7 @@ export default function Form() {
   const { handleSubmit } = useFormContext();
   const navigate = useNavigate();
   return (
-    <div className="md:w-1/2 p-6">
+    <div className="min-h-screen max-w-md m-auto flex flex-col justify-center items-center p-4">
       <div className="flex flex-wrap -mx-2 mb-4">
         <TextInput
           label="First Name"

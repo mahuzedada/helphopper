@@ -28,9 +28,11 @@ export default function InvalidFormNotice({ title }: Props) {
           Oops! To view your {title}, you'll need to fill out the required form
           first.
         </p>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-          <Link to="/form">Go To Form</Link>
-        </button>
+        <Link to="/form">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+            Go To Form
+          </button>
+        </Link>
       </div>
     </div>
   );
