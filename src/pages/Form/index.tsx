@@ -2,10 +2,20 @@ import { useNavigate } from 'react-router-dom';
 import DocumentInput from './DocumentInput';
 import TextInput from './TextInput';
 import { useFormContext } from 'react-hook-form';
+import { useEffect } from 'react';
+import localStorageKey from '../../constants/localStorageKey';
 
 export default function Form() {
-  const { handleSubmit } = useFormContext();
+  const { handleSubmit, reset } = useFormContext();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem(localStorageKey);
+    if (savedFormData) {
+      reset(JSON.parse(savedFormData));
+    }
+  }, []);
+
   return (
     <div className="min-h-screen max-w-md m-auto flex flex-col justify-center items-center p-4">
       <div className="flex flex-wrap -mx-2 mb-4">

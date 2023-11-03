@@ -17,7 +17,7 @@ export default function useCheckFormAndSubmit(submit: any) {
     } else {
       submit(formData);
     }
-  }, []);
+  }, [submit, getValues]);
 
   return isFormValid;
 }

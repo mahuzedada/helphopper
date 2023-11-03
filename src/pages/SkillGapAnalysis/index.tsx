@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { generateSkillGapAnalysis } from '../../api';
 import ProfileComponent from './ProfileComponent';
 import InvalidFormNotice from '../../components/InvalidFormNotice';
 import useCheckFormAndSubmit from '../../hooks/useCheckFormAndSubmit';
+import localStorageKey from '../../constants/localStorageKey';
 
 export default function SkillGapAnalysis() {
   const [generatedContent, setGeneratedContent] = useState('');
 
-  const submit = (data) => {
+  const submit = useCallback((data) => {
+    localStorage.setItem(localStorageKey, JSON.stringify(data));
     generateSkillGapAnalysis(data).then(setGeneratedContent);
-  };
+  }, []);
+
   const isFormValid = useCheckFormAndSubmit(submit);
 
   return (

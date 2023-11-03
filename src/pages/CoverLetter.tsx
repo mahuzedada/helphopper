@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { generateCoverLetter } from '../api';
 import useCheckFormAndSubmit from '../hooks/useCheckFormAndSubmit';
 import InvalidFormNotice from '../components/InvalidFormNotice';
+import localStorageKey from '../constants/localStorageKey';
 
 export default function CoverLetter() {
   const [generatedContent, setGeneratedContent] = useState('');
 
-  const submit = (data) => {
+  const submit = useCallback((data) => {
+    localStorage.setItem(localStorageKey, JSON.stringify(data));
     generateCoverLetter({ ...data, tone: 'Formal' }).then(setGeneratedContent);
-  };
+  }, []);
+
   const isFormValid = useCheckFormAndSubmit(submit);
 
   return (
