@@ -1,0 +1,34 @@
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="200px"
+        height="200px"
+        viewBox="0 0 200 200"
+>
+    <!-- Square background with a slight border radius, now blue -->
+    <rect
+            x="5"
+            y="5"
+            width="190"
+            height="190"
+            rx="10"
+            ry="10"
+            fill="#2979FF"
+    />
+
+    <!-- Larger Document icon in the center with less padding -->
+    <path
+            fill="#FFFFFF"
+            d="M40,30 L160,30 C165,30 170,35 170,40 L170,160 C170,165 165,170 160,170 L40,170 C35,170 30,165 30,160 L30,40 C30,35 35,30 40,30 Z"
+    />
+
+    <!-- Lines on the document to symbolize text, scaled to match the new icon size -->
+    <rect x="60" y="60" width="110" height="10" rx="5" fill="#2979FF" />
+    <rect x="60" y="80" width="90" height="10" rx="5" fill="#2979FF" />
+    <rect x="60" y="100" width="100" height="10" rx="5" fill="#2979FF" />
+
+    <!-- Larger check mark to fill more space -->
+    <path
+            fill="#2979FF"
+            d="M85,125 L100,140 L140,100 L155,115 L100,170 L70,140 L85,125 Z"
+    />
+</svg>
