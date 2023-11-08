@@ -8,22 +8,40 @@ type SkillResource = {
   resources: ResourceLink[];
 };
 
-type ProfileData = {
+export type ProfileData = {
+  summary: string;
   strengths: string[];
   gaps: string[];
   resources: SkillResource[];
   matchScore: number;
 };
+type Props = {
+  data: ProfileData;
+};
 
-export default function ProfileComponent({ data }: ProfileData) {
+export default function ProfileComponent({ data }: Props) {
+  let matchColorClass = '';
+  if (data.matchScore < 25) {
+    matchColorClass = 'text-red-500';
+  } else if (data.matchScore < 50) {
+    matchColorClass = 'text-yellow-500';
+  } else if (data.matchScore < 70) {
+    matchColorClass = 'text-lime-500';
+  } else if (data.matchScore < 90) {
+    matchColorClass = 'text-green-600';
+  } else {
+    matchColorClass = 'text-blue-700';
+  }
+
   return (
-    <div className="p-4 md:p-8 bg-white shadow-lg rounded-lg max-w-xl mx-auto">
-      <div className="flex flex-col md:flex-row justify-between">
-        <h1 className="text-2xl font-bold mb-4">Skill Gap Analysis</h1>
-        <span className="text-xl font-bold text-green-500">
+    <>
+      <div className="flex flex-row mb-4 justify-between items-center">
+        <h1 className="text-2xl font-bold">Result</h1>
+        <span className={`text-2xl font-bold ${matchColorClass}`}>
           {data.matchScore}% Match
         </span>
       </div>
+      <div className="mb-4">{data.summary}</div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <div>
@@ -71,6 +89,6 @@ export default function ProfileComponent({ data }: ProfileData) {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

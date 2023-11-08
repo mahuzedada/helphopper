@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="relative">
       <Navbar />
-      <div id="detail">
+      <div id="detail" className="mt-16">
         <FormProvider {...form}>
           <Outlet />
         </FormProvider>

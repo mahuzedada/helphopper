@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-export default function useCheckFormAndSubmit(submit: any) {
+export default function useCheckFormAndSubmit(
+  generatedContent: any,
+  submit: any
+) {
   const { getValues } = useFormContext();
   const [isFormValid, setIsFormValid] = useState(true);
 
@@ -14,10 +17,10 @@ export default function useCheckFormAndSubmit(submit: any) {
       !formData.jdText
     ) {
       setIsFormValid(false);
-    } else {
+    } else if (!generatedContent) {
       submit(formData);
     }
-  }, [submit, getValues]);
+  }, [submit, getValues, generatedContent]);
 
   return isFormValid;
 }

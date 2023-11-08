@@ -14,7 +14,7 @@ export default function Form() {
     if (savedFormData) {
       reset(JSON.parse(savedFormData));
     }
-  }, []);
+  }, [reset]);
 
   return (
     <div className="min-h-screen max-w-md m-auto flex flex-col justify-center items-center p-4">
@@ -40,12 +40,20 @@ export default function Form() {
         fieldName="jdText"
         placeholder="Enter your job description here"
       />
-      <button
-        onClick={handleSubmit(() => navigate('/skill-gap-analysis'))}
-        className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-      >
-        Generate Skill Gap
-      </button>
+      <div className="flex gap-2">
+        <button
+          onClick={handleSubmit(() => navigate('/skill-gap-analysis'))}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        >
+          Skill Gap Analysis
+        </button>
+        <button
+          onClick={handleSubmit(() => navigate('/cover-letter'))}
+          className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
+        >
+          Cover Letter
+        </button>
+      </div>
     </div>
   );
 }
