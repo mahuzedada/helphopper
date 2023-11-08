@@ -27,10 +27,6 @@ describe('Navbar component', () => {
   it('should toggle mobile menu on button click', async () => {
     fireEvent.click(screen.getByRole('button'));
 
-    const formLinks = await screen.findAllByText(/Form/i);
-    expect(formLinks[0]).toBeInTheDocument();
-    expect(formLinks[1]).toBeInTheDocument();
-
     const skillGapAnalysisLinks =
       await screen.findAllByText(/Skill Gap Analysis/i);
     expect(skillGapAnalysisLinks[0]).toBeInTheDocument();

@@ -14,9 +14,6 @@ export default function Navbar() {
           </Link>
 
           <div className="space-x-4">
-            <Link to="/form">
-              <span className="text-white">Form</span>
-            </Link>
             <Link to="/skill-gap-analysis">
               <span className="text-white">Skill Gap Analysis</span>
             </Link>
