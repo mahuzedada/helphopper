@@ -15,8 +15,8 @@ jest.mock('../components/InvalidFormNotice', () => ({
 }));
 
 describe('<CoverLetter />', () => {
-  const mockGenerateCoverLetter = require('../api').generateCoverLetter;
-  const mockUseCheckFormAndSubmit = require('../hooks/useCheckFormAndSubmit');
+  const mockGenerateCoverLetter = jest.fn();
+  const mockUseCheckFormAndSubmit = jest.fn();
 
   afterEach(() => {
     jest.clearAllMocks();

@@ -3,6 +3,8 @@ import { useForm, FormProvider } from 'react-hook-form';
 import DocumentInput from './DocumentInput';
 import { ReactNode } from 'react';
 
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 global.FileReader = class {
   readAsArrayBuffer() {
     if (this.onload) {

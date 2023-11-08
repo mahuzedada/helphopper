@@ -18,9 +18,8 @@ jest.mock('../../components/InvalidFormNotice', () => ({
 }));
 
 describe('<SkillGapAnalysis />', () => {
-  const mockGenerateSkillGapAnalysis =
-    require('../../api').generateSkillGapAnalysis;
-  const mockUseCheckFormAndSubmit = require('../../hooks/useCheckFormAndSubmit');
+  const mockGenerateSkillGapAnalysis = jest.fn();
+  const mockUseCheckFormAndSubmit = jest.fn();
 
   afterEach(() => {
     jest.clearAllMocks();

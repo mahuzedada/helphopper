@@ -2,14 +2,16 @@ import ProfileComponent, { ProfileData } from './ProfileComponent';
 import { Link } from 'react-router-dom';
 import { useFormContext } from 'react-hook-form';
 import { jobDescription, resume } from '../../constants/fieldNames';
-import DocumentInput from '../Form/DocumentInput';
 import useFormInit from '../../hooks/useFormInit';
 import useSubmit from '../../hooks/useSubmit';
 import { skillGapAnalysisPath } from '../../constants/api';
 import PageContainer from '../../components/PageContainer';
 import ErrorNotice from '../../components/ErrorNotice';
+import Loader from '../../components/Loader';
+import DocumentInput from '../../components/Form/DocumentInput';
 
 export default function SkillGapAnalysis() {
+  const title = 'Skill Gap Analysis';
   const { handleSubmit } = useFormContext();
   const { submit, error, resetPage, isLoading, generatedContent } =
     useSubmit<ProfileData>(skillGapAnalysisPath);
@@ -18,7 +20,7 @@ export default function SkillGapAnalysis() {
   if (isLoading) {
     return (
       <PageContainer>
-        <Loader title="Skill Gap Analysis" />
+        <Loader title={title} />
       </PageContainer>
     );
   }
@@ -33,9 +35,7 @@ export default function SkillGapAnalysis() {
 
   return (
     <PageContainer>
-      <h1 className="text-2xl text-center font-bold mb-4">
-        Skill Gap Analysis
-      </h1>
+      <h1 className="text-2xl text-center font-bold mb-4">{title}</h1>
       <DocumentInput
         label="Resume"
         fieldName={resume}
@@ -54,7 +54,7 @@ export default function SkillGapAnalysis() {
               onClick={handleSubmit(submit)}
               className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
             >
-              Regenerate
+              Regenerate {title}
             </button>
             <Link to="/cover-letter">
               <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300">
@@ -69,7 +69,7 @@ export default function SkillGapAnalysis() {
             onClick={handleSubmit(submit)}
             className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
           >
-            Generate Skill Gap Analysis
+            Generate {title}
           </button>
         </div>
       )}

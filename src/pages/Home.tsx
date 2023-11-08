@@ -17,11 +17,18 @@ export default function Home() {
         <p className="text-gray-700 mb-4">
           Ready to leap forward in your job hunt? Let's get started!
         </p>
-        <Link to="/form">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
-            Get Started
-          </button>
-        </Link>
+        <div className="flex justify-between items-center">
+          <Link to="/skill-gap-analysis">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+              Skill Gap Analysis
+            </button>
+          </Link>
+          <Link to="/cover-letter">
+            <button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded">
+              Cover Letter
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

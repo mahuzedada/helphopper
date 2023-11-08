@@ -3,6 +3,7 @@ import { useFormContext } from 'react-hook-form';
 import mammoth from 'mammoth';
 import InputProps from './InputProps';
 import * as pdfjsLib from 'pdfjs-dist';
+import { ChangeEvent } from 'react';
 
 // @ts-ignore
 pdfjsLib.GlobalWorkerOptions.workerSrc =
@@ -19,8 +20,8 @@ export default function DocumentInput({
     trigger,
     resetField,
   } = useFormContext();
-  const handleFileChange = async (e: any) => {
-    const file = e.target.files[0];
+  const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files.item(0);
     if (file) {
       const reader = new FileReader();
       if (file.name.endsWith('.docx')) {

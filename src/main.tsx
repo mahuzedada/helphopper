@@ -7,7 +7,6 @@ import ErrorPage from './error-page';
 import SkillGapAnalysis from './pages/SkillGapAnalysis';
 import Home from './pages/Home';
 import CoverLetter from './pages/CoverLetter';
-import Form from './pages/Form';
 
 const router = createBrowserRouter([
   {
@@ -18,10 +17,6 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home />,
-      },
-      {
-        path: '/form',
-        element: <Form />,
       },
       {
         path: '/skill-gap-analysis',
