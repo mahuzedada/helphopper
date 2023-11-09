@@ -9,7 +9,7 @@ function cleanServerResponse<T>(data: string | T) {
     try {
       return JSON.parse(cleanedResponse);
     } catch (e) {
-      console.error('Failed to parse JSON:', e);
+      return cleanedResponse;
     }
   } else {
     return data;

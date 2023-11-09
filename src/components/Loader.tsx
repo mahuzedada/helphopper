@@ -63,26 +63,10 @@ export default function Loader({ title }: Props) {
             <div className={`${shimmerEffect} h-6 rounded`}></div>
             <div className={`${shimmerEffect} h-6 rounded`}></div>
             <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-8 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-8 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
           </div>
 
           {/* Right Column */}
           <div className="flex-1 space-y-4 py-1">
-            <div className={`${shimmerEffect} h-8 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-8 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
-            <div className={`${shimmerEffect} h-6 rounded`}></div>
             <div className={`${shimmerEffect} h-8 rounded`}></div>
             <div className={`${shimmerEffect} h-6 rounded`}></div>
             <div className={`${shimmerEffect} h-6 rounded`}></div>
