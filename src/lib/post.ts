@@ -2,7 +2,7 @@ import axios from 'axios';
 import duplicatedRequestErrorMessage from '../constants/duplicatedRequestErrorMessage';
 import { baseUrl } from '../constants/api';
 
-function cleanServerResponse(data) {
+function cleanServerResponse<T>(data: string | T) {
   if (typeof data === 'string') {
     const cleanedResponse = data.replace(/```json|```/g, '').trim();
 
