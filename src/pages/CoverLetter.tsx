@@ -80,7 +80,7 @@ export default function CoverLetter() {
           <>
             <textarea
               className="w-full min-h-96 px-3 py-2 border rounded-md"
-              rows="10"
+              rows={10}
               readOnly
               value={generatedContent}
             ></textarea>
@@ -91,7 +91,7 @@ export default function CoverLetter() {
               >
                 Regenerate {title}
               </button>
-              <Link to="/cover-letter">
+              <Link to="/skill-gap-analysis">
                 <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 focus:outline-none focus:ring focus:ring-green-300">
                   Go to Skill Gap Analysis
                 </button>

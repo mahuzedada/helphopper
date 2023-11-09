@@ -6,10 +6,10 @@ import post from '../lib/post';
 export default function useSubmit<T>(path: string) {
   const [isLoading, setIsLoading] = useState(false);
   const [generatedContent, setGeneratedContent] = useState<T | null>(null);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<{ message: string } | null>(null);
 
   const submit = useCallback(
-    (data) => {
+    (data: any) => {
       localStorage.setItem(localStorageKey, JSON.stringify(data));
       setIsLoading(true);
       post(path, data)

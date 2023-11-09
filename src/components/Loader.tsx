@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type Props = {
   title: string;
@@ -10,7 +10,7 @@ export default function Loader({ title }: Props) {
   useEffect(() => {
     const maxTime = 60000; // 60 seconds
     let timeElapsed = 0;
-    let timeout;
+    let timeout: any;
 
     const fakeLoad = () => {
       const remainingTime = maxTime - timeElapsed;

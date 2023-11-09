@@ -21,15 +21,15 @@ export default function DocumentInput({
     resetField,
   } = useFormContext();
   const handleFileChange = async (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files.item(0);
+    const file = e.target.files?.item(0);
     if (file) {
       const reader = new FileReader();
       if (file.name.endsWith('.docx')) {
         reader.onload = async (loadEvent) => {
-          const arrayBuffer = loadEvent.target.result;
+          const arrayBuffer = loadEvent.target?.result;
           // @ts-ignore
           const result = await mammoth.extractRawText({
-            arrayBuffer: arrayBuffer!,
+            arrayBuffer: arrayBuffer! as ArrayBuffer,
           });
           resetField(fieldName, { defaultValue: result.value });
         };
@@ -45,7 +45,8 @@ export default function DocumentInput({
           for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const content = await page.getTextContent();
-            text += content.items.map((item) => item.str!).join(' ') + '\n';
+            text +=
+              content.items.map((item: any) => item.str!).join(' ') + '\n';
           }
           resetField(fieldName, { defaultValue: text });
         };

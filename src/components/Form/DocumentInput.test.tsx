@@ -67,7 +67,7 @@ describe('<DocumentInput />', () => {
     ).toBeInTheDocument();
   });
 
-  const fireFileChange = (fileName, fileContent) => {
+  const fireFileChange = (fileName: string, fileContent: string) => {
     const input = screen.getByLabelText(/Document:/i);
     const file = new File([fileContent], fileName);
     fireEvent.change(input, { target: { files: [file] } });
