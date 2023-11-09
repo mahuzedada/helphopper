@@ -52,20 +52,6 @@ export default function Navbar() {
                       <Menu.Item>
                         {({ active }) => (
                           <Link
-                            to="/form"
-                            className={`${
-                              active
-                                ? 'bg-blue-600 text-white'
-                                : 'text-gray-900'
-                            } block px-4 py-2 text-sm`}
-                          >
-                            Form
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
                             to="/skill-gap-analysis"
                             className={`${
                               active
